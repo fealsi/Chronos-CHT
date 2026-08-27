@@ -4,6 +4,17 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Chronos - C-H-T</title>
+  <link rel="manifest" href="manifest.json">
+
+<meta name="theme-color" content="#1e293b">
+
+<meta name="mobile-web-app-capable" content="yes">
+
+<meta name="apple-mobile-web-app-capable" content="yes">
+
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+<meta name="apple-mobile-web-app-title" content="Chronos">
   <link rel="stylesheet" href="styles.css" />
 
   <!-- libs para export -->
@@ -45,6 +56,19 @@
   <h3>Autor: Daniel Fealsi</h3>
 
   <script src="script.js"></script>
+  <script>
+if ("serviceWorker" in navigator) {
+  window.addEventListener("load", () => {
+    navigator.serviceWorker.register("./service-worker.js")
+      .then(() => {
+        console.log("Chronos: Service Worker registrado.");
+      })
+      .catch(error => {
+        console.error("Chronos: erro ao registrar Service Worker:", error);
+      });
+  });
+}
+</script>
 </body>
 </html>
 
